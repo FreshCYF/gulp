@@ -1,0 +1,60 @@
+<div class="weui-panel weui-panel_access"><div class=weui-panel__hd>图文组合列表<div class=weui-cell__ft><label for=switchCP class=weui-switch-cp style="position: absolute ;display: inline; top: 6px; right: 2px;"><input id=switchCP ng-model=switchCp class=weui-switch-cp__input type=checkbox checked><div class=weui-switch-cp__box></div></label></div></div><div class=weui-panel__bd><a ng-href=#/detail/{{$index}} class="weui-media-box weui-media-box_appmsg" ng-repeat="new in news|filter:searchName|orderBy: new.pubDate :switchCp"><div class=weui-media-box__hd ng-show=new.havePic><img class=weui-media-box__thumb ng-src="{{new.havePic?new.imageurls[0].url:'image/psb.webp.jpg'}}"></div><div class=weui-media-box__bd><h4 class=weui-media-box__title>{{new.title?new.title:'加载中...'}}</h4><p class=weui-media-box__desc>{{new.desc?new.desc:'加载中'}}</p></div></a></div><div class=weui-panel__ft ng-show=isShow><a ng-click=loadMore() class="weui-cell weui-cell_access weui-cell_link"><div class=weui-cell__bd>查看更多</div><span class=weui-cell__ft></span></a></div><div class=weui-loadmore ng-hide=isShow><i class=weui-loading></i> <span class=weui-loadmore__tips>正在加载</span></div></div><div ng-hide=isShow><div class=mask></div><div class=loading><img src=image/loading_img_56@2x.png></div></div><style>
+	.mask {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 98;
+		height: 100%;
+		width: 100%;
+		background-color: #000000;
+		opacity: 0.2;
+	}
+	
+	.loading {
+		position: fixed;
+		z-index: 99;
+		left: 50%;
+		top: 50%;
+		margin-left: -28px;
+		margin-top: -28px;
+	}
+	
+	.loading img {
+		-webkit-animation: rotateImg 2s infinite;
+		-webkit-animation-timing-function: linear;
+		-webkit-animation-direction: normal;
+	}
+	
+	@-webkit-keyframes rotateImg {
+		from {
+			transform: rotate(0deg)
+		}
+		to {
+			transform: rotate(360deg)
+		}
+	}
+</style><div class="weui-search-bar {{isSearch?'weui-search-bar_focusing':''}}" id=search_bar><form class=weui-search-bar__form><div class=weui-search-bar__box><i class=weui-icon-search></i> <input ng-model=searchName ng-focus=search() type=search class=weui-search-bar__input id=search_input placeholder=搜索> <a href=javascript: class=weui-icon-clear id=search_clear></a></div><label for=search_input class=weui-search-bar__label id=search_text><i class=weui-icon-search></i> <span>搜索</span></label></form><a ng-click=cancelSearch() class=weui-search-bar__cancel-btn id=search_cancel>取消</a></div><div class=swiper-container><div class=swiper-wrapper><div class=swiper-slide><img src=image/psb.webp.jpg></div><div class=swiper-slide>Slide 2</div><div class=swiper-slide>Slide 3</div><div class=swiper-slide>Slide 4</div><div class=swiper-slide>Slide 5</div><div class=swiper-slide>Slide 6</div><div class=swiper-slide>Slide 7</div><div class=swiper-slide>Slide 8</div><div class=swiper-slide>Slide 9</div><div class=swiper-slide>Slide 10</div></div><div class=swiper-pagination></div></div><style>
+	.swiper-container {
+        width: 100%;
+        height: 200px;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+</style>

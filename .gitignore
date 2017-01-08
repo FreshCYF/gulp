@@ -1,0 +1,4 @@
+*.mp3
+gulp/.project
+*.zip
+gulp/news/node_modules/
